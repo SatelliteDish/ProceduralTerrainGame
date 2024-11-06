@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://djpxgdabv80ni"]
+
+[ext_resource type="Script" path="res://Scripts/Entities/Wisp/Wisp.cs" id="1_elcbf"]
+[ext_resource type="Shader" path="res://World/Wisps/WispShader.gdshader" id="2_hruy3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_83865"]
+render_priority = 0
+shader = ExtResource("2_hruy3")
+
+[sub_resource type="BoxMesh" id="BoxMesh_6aj58"]
+material = SubResource("ShaderMaterial_83865")
+
+[node name="Wisp" type="Node3D" node_paths=PackedStringArray("mesh")]
+script = ExtResource("1_elcbf")
+mesh = NodePath("Mesh")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, 0, 0, 0)
+mesh = SubResource("BoxMesh_6aj58")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.752941, 0.945098, 0.992157, 1)
+light_size = 1.0
+omni_range = 15.0
+omni_attenuation = 0.90125

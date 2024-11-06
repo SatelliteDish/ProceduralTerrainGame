@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1xtp5f32vp0n"]
+
+[ext_resource type="Script" path="res://Entities/Player/Player.cs" id="1_mwn6f"]
+[ext_resource type="PackedScene" uid="uid://b4rxuipvycelu" path="res://Controllers/Input_Controller.tscn" id="2_ed4e4"]
+[ext_resource type="Script" path="res://Scripts/Player/SpringArm.cs" id="4_wasop"]
+[ext_resource type="PackedScene" uid="uid://cyr44to3b7d7d" path="res://Models/Voxel_Character.glb" id="4_yfn4a"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xpt4b"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_mwn6f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.988795, 0)
+shape = SubResource("CapsuleShape3D_xpt4b")
+
+[node name="Input Controller" parent="." instance=ExtResource("2_ed4e4")]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 1.24, 0)
+spring_length = 5.0
+margin = 0.5
+script = ExtResource("4_wasop")
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+
+[node name="Voxel_Character" parent="." instance=ExtResource("4_yfn4a")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://da4ysjhnlsqhi"]
+
+[ext_resource type="PackedScene" path="res://Models/Will O Wisp.glb" id="1_kb71q"]
+
+[node name="Voxel_Character" instance=ExtResource("1_kb71q")]

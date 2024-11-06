@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1xtp5f32vp0n"]
+
+[ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_g2wpo"]
+[ext_resource type="PackedScene" uid="uid://b4rxuipvycelu" path="res://Controllers/Input_Controller.tscn" id="2_ed4e4"]
+[ext_resource type="Script" path="res://Scripts/Player/SpringArm.gd" id="3_x6bt4"]
+[ext_resource type="ArrayMesh" uid="uid://si76vnxmtcx3" path="res://Entities/Player/Test.obj" id="4_7vrfe"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xpt4b"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_g2wpo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_xpt4b")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9, 0, 0, 0, 0.8, 0, 0, 0, 0.9, 0, -0.993972, 0)
+mesh = ExtResource("4_7vrfe")
+
+[node name="Input Controller" parent="." instance=ExtResource("2_ed4e4")]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
+spring_length = 5.0
+margin = 0.2
+script = ExtResource("3_x6bt4")
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]

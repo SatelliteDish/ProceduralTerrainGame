@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://do38sb8v207vk"]
+
+[ext_resource type="Shader" path="res://World/Wisps/WispShader.gdshader" id="1_ikuba"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ikuba")
